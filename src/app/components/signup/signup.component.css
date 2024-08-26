@@ -1,0 +1,4 @@
+.form-container {
+    width: 50%; /* Fixe la largeur à 50% de l'écran */
+    margin: 0 auto; /* Centre le conteneur horizontalement */
+  }
