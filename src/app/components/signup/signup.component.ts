@@ -14,7 +14,7 @@ import { UserService } from '../../services/user.service';
 })
 export class SignupComponent {
 
-  userService = inject(UserService)
+  authService = inject(AuthService)
 
   user = {
     name:'',
@@ -22,6 +22,14 @@ export class SignupComponent {
     password:'',
     phone:'',
     adresse:''
+  }
+
+  signup() {
+    this.authService.register(this.user)
+        .subscribe(({
+          next: (res) => console.log(res),
+          error: (err) => console.log(err)
+        }))
   }
 
 }
