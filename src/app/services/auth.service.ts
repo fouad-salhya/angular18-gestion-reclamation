@@ -10,7 +10,7 @@ export class AuthService {
 
 private http = inject(HttpClient)
 
-  base_url ="localhost:7000/api/auth"
+  base_url ="http://localhost:7000/api/auth"
 
   // 
   register(data: User): Observable<User> {
