@@ -13,7 +13,7 @@ private http = inject(HttpClient)
   base_url ="http://localhost:7000/api/auth"
 
   // 
-  register(data: User): Observable<User> {
+  register(data: User): Observable<any> {
     return this.http.post<User>(`${this.base_url}/signup`, data)
   }
 

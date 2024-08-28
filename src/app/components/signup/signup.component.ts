@@ -3,6 +3,8 @@ import { Component, inject } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-signup',
@@ -15,6 +17,7 @@ import { UserService } from '../../services/user.service';
 export class SignupComponent {
 
   authService = inject(AuthService)
+  router      = inject(Router)
 
   user = {
     name:'',
@@ -27,8 +30,23 @@ export class SignupComponent {
   signup() {
     this.authService.register(this.user)
         .subscribe(({
-          next: (res) => console.log(res),
-          error: (err) => console.log(err)
+          next: (res) => {
+            console.log()
+            Swal.fire({
+              icon: "success",
+              title: `${res['message']}`,
+              showConfirmButton: false,
+              timer: 1500
+            });
+          },
+          error: (err) => {
+            Swal.fire({
+              icon: "error",
+              title: `${err['message']}`,
+              showConfirmButton: false,
+              timer: 1500
+            });
+          },
         }))
   }
 
