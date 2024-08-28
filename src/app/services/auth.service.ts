@@ -17,4 +17,8 @@ private http = inject(HttpClient)
     return this.http.post<User>(`${this.base_url}/signup`, data)
   }
 
+  login(user: any): Observable<any> {
+    return this.http.post<any>(`${this.base_url}/signin`, user)
+  }
+
 }

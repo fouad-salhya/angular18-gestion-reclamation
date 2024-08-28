@@ -31,18 +31,30 @@ export class SignupComponent {
     this.authService.register(this.user)
         .subscribe(({
           next: (res) => {
-            console.log()
-            Swal.fire({
-              icon: "success",
-              title: `${res['message']}`,
-              showConfirmButton: false,
-              timer: 1500
-            });
+            if(res['message']) {
+              Swal.fire({
+                icon: "success",
+                title: `${res['message']}`,
+                showConfirmButton: false,
+                timer: 1500
+              });
+              this.router.navigate(['/signin'])
+            }
+
+            if(res['err']) {
+              Swal.fire({
+                icon: "success",
+                title: `${res['err']}`,
+                showConfirmButton: false,
+                timer: 1500
+              });
+            }
+        
           },
           error: (err) => {
             Swal.fire({
               icon: "error",
-              title: `${err['message']}`,
+              title: `${err['err']}`,
               showConfirmButton: false,
               timer: 1500
             });
