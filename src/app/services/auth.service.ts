@@ -21,4 +21,8 @@ private http = inject(HttpClient)
     return this.http.post<any>(`${this.base_url}/signin`, user)
   }
 
+  logout(): Observable<any> {
+    return this.http.get(`${this.base_url}/signout`);
+  }
+
 }

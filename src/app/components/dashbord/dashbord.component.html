@@ -1,1 +1,94 @@
-<p>dashbord works!</p>
+<div class="grid grid-rows-3 grid-flow-col gap-4">
+    <div class="row-span-3 ">
+        <div class="drawer lg:drawer-open">
+            <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+            <div class="drawer-content flex flex-col items-center justify-center">
+              <!-- Page content here -->
+              <label for="my-drawer" class="btn btn-primary drawer-button lg:hidden">
+                Open drawer
+              </label>
+            </div>
+            <div class="drawer-side">
+              <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+              <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4">
+                <!-- Sidebar content here -->
+                <li ><a>Sidebar Item 1</a></li>
+                <li><a>Sidebar Item 2</a></li>
+              </ul>
+            </div>
+          </div>
+    </div>
+    <div class="col-span-2">
+        <div class="navbar bg-base-100">
+            <div class="flex-1">
+              <a class="btn btn-ghost text-xl">CHIKAYA</a>
+            </div>
+            <div class="flex-none gap-2">
+              <div class="form-control">
+                <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+              </div>
+              <div class="dropdown dropdown-end">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+                  <div class="w-10 rounded-full">
+                    <img
+                      alt="Tailwind CSS Navbar component"
+                      src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                  </div>
+                </div>
+                <ul
+                  tabindex="0"
+                  class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                  <li>
+                    <a class="">
+                      Profile
+                    </a>
+                  </li>
+                  <li><a>Settings</a></li>
+                   @if(!currentUser) {
+                    <li (click)="redirectTo('signin')"><a>Login</a></li>
+                    <li (click)="redirectTo('signup')"><a>Register</a></li>
+                   }
+                   @else {
+                    <li (click)="signout()"><a>Logout</a></li>
+                   }
+                 
+                </ul>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="row-span-2 col-span-1 ">
+        <div class="card card-side bg-base-100 shadow-xl h-45">
+            <figure>
+              <img
+                src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+                alt="Movie" />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">Soumettre une réclamation</h2>
+              <p>Pour soumettre une nouvelle réclamation, cliquez sur le bouton ci-dessous.</p>
+              <div class="card-actions justify-end">
+                <button class="btn btn-primary">Commencer la démarche »</button>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <div class="row-span-2 col-span-1">
+        <div class="card card-side bg-base-100 shadow-xl ">
+            <figure>
+              <img
+                src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+                alt="Movie" />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">Suivre ma réclamation</h2>
+              <p>Pour suivre l'état d'avancement d'une précédente réclamation</p>
+              <div class="card-actions justify-end">
+                <button class="btn btn-primary">Accéder »</button>
+              </div>
+            </div>
+          </div>
+    </div>
+
+  </div>
